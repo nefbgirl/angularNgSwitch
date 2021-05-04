@@ -1,0 +1,26 @@
+
+<pre>{{(deviceObject$ | async) | json}}</pre>
+
+<div id="content" #content>
+
+    <div>this is a test! id: {{(deviceObject$ | async)?.id}}</div>
+
+    <div>name: {{(deviceObject$ | async)?.name}}</div>
+
+    <!-- <img src="https://i.picsum.photos/id/164/200/300.jpg?hmac=lJgBIETeK-yv_xtPn_UpKfg8s9N38Jw6UzxnDF-m0sc" alt="Girl in a jacket" width="50" height="50"> -->
+
+    <!-- <img [src]="imageUrl"> -->
+
+    <img *ngIf="isSigned"  [src]="transform()">
+
+
+</div> 
+
+
+<div style="border-style: solid;" *ngIf="!isSigned">
+    <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+</div>
+
+<button *ngIf="isSigned" (click)="makePDF()">download </button>
+
+<button  *ngIf="!isSigned" (click)="onSigned()">Signed OK </button>

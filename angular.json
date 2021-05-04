@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularNgSwitch"
+    }
+  },
+  "defaultProject": "angularNgSwitch",
+  "cli": {
+    "analytics": false
+  }
 }
